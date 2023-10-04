@@ -18,12 +18,24 @@ public class PedidosController {
     @Autowired
     PedidosServiceImpl service;
 
-    @GetMapping ( value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
+    /**
+    * Recupera la lista de pedidos.
+    * 
+    * @return Lista de objetos Pedido.
+    */
+    @GetMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Pedido> obtenerPedidos() {
         return service.pedidos();
     }
 
-    @PostMapping ( value = "/{codigoProducto}/{unidades}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    /**
+    * Crea un nuevo pedido para el producto especificado.
+    * 
+    * @param codigoProducto El código del producto.
+    * @param unidades       La cantidad de unidades a pedir.
+    * @return Lista de objetos Pedido.
+    */
+    @PostMapping(value = "/{codigoProducto}/{unidades}", consumes = MediaType.APPLICATION_JSON_VALUE)
     public List<Pedido> nuevoPedido(@PathVariable int codigoProducto, @PathVariable int unidades) {
         return service.nuevoPedido(codigoProducto, unidades);
     }

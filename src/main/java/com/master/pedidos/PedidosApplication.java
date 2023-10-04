@@ -12,9 +12,13 @@ public class PedidosApplication {
 		SpringApplication.run(PedidosApplication.class, args);
 	}
 
+	/**
+	* Configura y crea un bean de RestTemplate.
+	* 
+	* @return Una instancia de RestTemplate.
+	*/
 	@Bean
 	public RestTemplate restTemplate() {
 		return new RestTemplate();
 	}
-
 }
