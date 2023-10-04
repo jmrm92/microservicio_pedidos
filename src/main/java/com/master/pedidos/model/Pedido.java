@@ -1,19 +1,30 @@
 package com.master.pedidos.model;
 
-import java.sql.Date;
+import java.time.LocalDateTime;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table (name = "pedidos")
 public class Pedido {
-    
+    @Id
+    @Column (name = "id_pedido")
     private int idPedido;
-    private String codigoProducto;
+    @Column(name = "codigo_producto")
+    private int codigoProducto;
     private int unidades;
     private double total;
-    private Date fecha;
+    private LocalDateTime fecha;
 
     public Pedido() {
     }
 
-    public Pedido(int idPedido, String codigoProducto, int unidades, double total, Date fecha) {
+    public Pedido(int idPedido, int codigoProducto, int unidades, double total, LocalDateTime fecha) {
         this.idPedido = idPedido;
         this.codigoProducto = codigoProducto;
         this.unidades = unidades;
@@ -29,11 +40,11 @@ public class Pedido {
         this.idPedido = idPedido;
     }
 
-    public String getCodigoProducto() {
+    public int getCodigoProducto() {
         return codigoProducto;
     }
 
-    public void setCodigoProducto(String codigoProducto) {
+    public void setCodigoProducto(int codigoProducto) {
         this.codigoProducto = codigoProducto;
     }
 
@@ -53,11 +64,11 @@ public class Pedido {
         this.total = total;
     }
 
-    public Date getFecha() {
+    public LocalDateTime getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(LocalDateTime fecha) {
         this.fecha = fecha;
     }  
 }

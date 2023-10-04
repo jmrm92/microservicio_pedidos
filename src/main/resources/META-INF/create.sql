@@ -6,3 +6,5 @@ CREATE TABLE pedidosdb.pedidos (
 	fecha DATETIME NULL,
 	CONSTRAINT pedidos_pk PRIMARY KEY (id_pedido)
 )
+
+ALTER TABLE pedidosdb.pedidos ADD CONSTRAINT pedidos_FK FOREIGN KEY (codigo_producto) REFERENCES pedidosdb.productos(codigo_producto);
